@@ -1,0 +1,107 @@
+.form-card-title {
+  width: 500px;
+  outline: none;
+  border-color: transparent;
+  font-size: 20px;
+  margin: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.autoresize {
+  width: 500px;
+  outline: none;
+  border-color: transparent;
+  font-family: 'Roboto', sans-serif;  
+  font-size: 10px;
+  margin: 2px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-card-update {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-event {
+  position: relative;
+  background-color: #f7d736;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-weight: bold;
+  font-family: "roboto", sans-serif;
+  margin: 2px;
+  width: 170px;
+  margin-left: 20px;
+}
+
+.btn-event-delete {
+  position: relative;
+  background-color: #f7d736;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-weight: bold;
+  font-family: "roboto", sans-serif;
+  margin: 2px;
+  width: 170px;
+}
+
+.btn {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+
+  overflow: hidden;
+  width: 500px;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-family: "roboto", sans-serif;
+  background-color: #f7d736;
+
+  transition: background-color 0.3s;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, 0.3);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+} 
