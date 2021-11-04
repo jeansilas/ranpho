@@ -1,10 +1,22 @@
-.form-card-title {
-  width: 500px;
-  outline: none;
+.form-input {
+  width: 494px;
+  height: 40px;
   border-color: transparent;
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: bold;
   margin: 10px;
+  border: 2px solid #292b36;
   font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  transition: 180ms box-shadow ease-in-out;
+  padding-left: 5px;
+}
+
+.form-input:focus {
+  border: 2px solid #008AF4;
+  /*box-shadow: 0 0 0 3px hsla(206, 100%, 98%  40%, 0.8);*/
+  box-shadow:  0 0 3px hsla(206, 100%, 48%, 0.8);
+  outline: 3px solid transparent;
 }
 
 .autoresize {
@@ -21,6 +33,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.form-card {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
 }
 
 .form-card-update {
@@ -58,17 +78,21 @@
 .btn {
   position: relative;
   display: block;
-  padding: 10px 15px;
-
   overflow: hidden;
   width: 500px;
   border-width: 0;
   outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  height: 40px;
+  box-shadow: rgba(0,12,32,.04) 0 0 1px 0,rgba(10,31,68,.1) 0 3px 4px 0;
+  color: #fff;
+  margin-left: 0;
+  margin-top: .7em;
+  padding: 0 25px;
+  border-radius: 5px;
+
   font-weight: bold;
-  font-family: "roboto", sans-serif;
-  background-color: #f7d736;
+  font-family: CerebriSans-Regular,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+  background-color: #292b36;
 
   transition: background-color 0.3s;
 }

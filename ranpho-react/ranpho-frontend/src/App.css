@@ -1,5 +1,57 @@
 .App {
   text-align: center;
+  display: flex;
+}
+
+.Body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f3f3;
+}
+
+.Buttons-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #292b36;
+  color: white;
+  width: 100%;
+}
+
+.img-text {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.txt-impact {
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.logo {
+  margin-top: 7px;
+  margin-left: 20px;
+  height: 35px;
+  width: 35px;
+}
+
+.btn-album {
+  height: 100%;
+  color: white;
+  background-color: #292b36;
+  outline: none;
+  font-weight: bold;
+  font-family: CerebriSans-Regular,-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+  border-width: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.btn-album:hover{
+  background-color: #363948;
 }
 
 

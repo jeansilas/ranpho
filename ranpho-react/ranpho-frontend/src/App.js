@@ -1,4 +1,4 @@
-import Album from "./components/album";
+import Foto from "./components/album";
 import Formulario from "./components/search-bar";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -19,36 +19,63 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  const updateOptions = (text) => {
+    options.params.q = text;
+    console.log(`As options foram atualizadas para a seguinte string ${text}`);
+    getFotos();
+  }
+
+  const getFotos = () => {
     axios.request(options).then(
       (response) => setResImg(response.data));
-
+      
+      console.log(resImg);
       let imgArray = [];
+      let cont = 1;
+
       for (let data in resImg.data) {
-        
         let imagem = resImg.data[data].images;
+        
         for (let inf in imagem){
           let linkImg = imagem[inf].link;
-        
-          console.log(linkImg);
+          
           if (!linkImg.includes('.mp4')){
-            imgArray.push(linkImg);
+            let objImg = {id: cont, urlImg: linkImg};
+            imgArray.push(objImg);
+            console.log(imgArray);
+            cont += 1;
           };
         };
       };
       setImgs(imgArray);
+  };
+
+  useEffect(() => {
+    updateOptions();
   }, []);
-  
-  console.log(imgs);
 
   return (
-    <div>
+    <div className="Body">
+      
+      <div className="Buttons-bar">
+          <div className="img-text">
+            <img className="logo" src="/love.png" alt="logo"/>
+            <p className="txt-impact">Pesquise, favorite e salve suas fotos favoritas em um  só album</p>
+          </div>
+          <button className="btn-album">Meus Albuns</button>
+      </div>
+
+      <div className="Forms">
+        <Formulario onSubmitFormulario={updateOptions}></Formulario>
+      </div>
       <div className="Conjunto-Imagens">
       {
         imgs.map(
-      (img) => (<Album src={img}></Album>))
+      (img) => (
+        <Foto key={`foto__${img.id}`} src={img.urlImg}></Foto>))
       }
       </div>
+    
     </div>
   );
 };

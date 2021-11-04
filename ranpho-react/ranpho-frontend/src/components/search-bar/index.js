@@ -2,21 +2,32 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./index.css";
 
-export default function Formulario(){
-  const [titleNote, setTitle] = useState("");
-  const [contentNote, setContent] = useState("");
-  
+
+
+export default function Formulario(props){
+  const [search, setSearch] = useState({text: ''});
+
+  const searchChanged = (event) => {
+    setSearch({ text: event.target.value })
+  };
+
+  const send = (event) => {
+    event.preventDefault();
+    props.onSubmitFormulario(search.text);
+    
+  };
+
   return (
-      <form className="form-card">
+      <form className="form-card" onSubmit={send}>
           <input
-          className="form-card-title"
+          className="form-input"
           type="text"
-          name="titulo"
+          name="pesquisar"
           placeholder="Escreva um tema de imagem =)"
-          value=""
-          onChange=""
+          value={search.text}
+          onChange ={searchChanged}
           />
-          <button className="btn" type="submit">Criar</button>
+          <button className="btn" type="submit">Pesquisar</button>
       </form>
   );
 }
