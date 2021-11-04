@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import Http404
-from .models import Pic
-from .serializers import PicSerializer
+from .models import Album, Pic
+from .serializers import PicSerializer, AlbumSerializer
 
 # SUAS OUTRAS FUNÇÕES CONTINUAM AQUI
 
@@ -12,9 +12,9 @@ def index (request):
     return render("Oi")
 
 @api_view(['GET', 'POST'])
-def api_note_get(request, note_id):
+def api_pic_get(request, pic_id):
     try:
-        pic = Pic.objects.get(id=note_id)
+        pic = Pic.objects.get(id=pic_id)
     except Pic.DoesNotExist:
         raise Http404()
 
@@ -24,13 +24,40 @@ def api_note_get(request, note_id):
 
 @api_view(['GET', 'POST'])
 
-def api_note_post(request):
+def api_pic_post(request):
     if request.method == 'POST':
-        new_note_data = request.data
+        new_pic_data = request.data
         pic = Pic()
-        pic.title = new_note_data['title']
-        pic.content = new_note_data['content']
+        pic.title = new_pic_data['title']
+        pic.content = new_pic_data['content']
+        album = Album.objects.get(title=new_pic_data['album'])
+        pic.album = album
         pic.save()
+
     
     serialized_pic = PicSerializer(pic)
     return Response(serialized_pic.data)
+
+@api_view(['GET', 'POST'])
+
+def api_album_get(request,album_id):
+    
+    album = Album.objects.get(title=album_id)
+
+    pics = Pic.objects.filter(album=album.id)
+    serialized_pics = PicSerializer(pics,many=True)
+    return Response(serialized_pics.data)
+    
+
+@api_view(['GET', 'POST'])
+
+def api_album_post(request):
+    if request.method == 'POST':
+        new_album_data = request.data
+        album = Album()
+        album.title = new_album_data['title']
+        album.save()
+    
+    serialized_album = AlbumSerializer(album)
+    return Response(serialized_album.data)
+
