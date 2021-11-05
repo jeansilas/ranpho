@@ -5,4 +5,4 @@ from .models import Pic
 class PicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pic
-        fields = ['id', 'title', 'content']
+        fields = ['id', 'albumTitle', 'content']
