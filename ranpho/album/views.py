@@ -28,11 +28,21 @@ def api_pic_post(request):
     if request.method == 'POST':
         new_pic_data = request.data
         pic = Pic()
-        pic.title = new_pic_data['title']
         pic.content = new_pic_data['content']
-        album = Album.objects.get(title=new_pic_data['album'])
-        pic.album = album
-        pic.save()
+
+        if Album.objects.filter(title = new_pic_data['album']).exists():
+            album = Album.objects.get(title=new_pic_data['album'])
+            pic.album = album
+            pic.save()
+
+        else:
+            album = Album()
+            album.title = new_pic_data['album']
+            album.save()
+            pic.album = album
+            pic.save()
+
+       
 
     
     serialized_pic = PicSerializer(pic)

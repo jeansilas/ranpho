@@ -13,7 +13,7 @@ export default function Foto(props) {
 
   const saveImg = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:8000/api/notes/", {title:titleAlbum, srcImg:props.src}).then(
+    axios.post("http://localhost:8000/api/pics/", {album:titleAlbum, content:props.src}).then(
         (response) => {
           setTitleAlbum("");
         });
