@@ -57,6 +57,13 @@ def api_album_get(request,album_id):
     pics = Pic.objects.filter(album=album.id)
     serialized_pics = PicSerializer(pics,many=True)
     return Response(serialized_pics.data)
+
+@api_view(['GET', 'POST'])
+def api_albums_get(request):
+    
+    albums = Album.objects.all()
+    serialized_albums = AlbumSerializer(albums, many=True)
+    return Response(serialized_albums.data)
     
 
 @api_view(['GET', 'POST'])
