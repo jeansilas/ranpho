@@ -12,8 +12,8 @@ const Rotas = () => {
    return(
         <Router>
             <Routes>
-                <Route component = { Home }  path="/" exact />
-                <Route component = { Albums }  path="/albums" exact />
+                <Route element = { <Home/> }  path="/" exact />
+                <Route element = { <Albums/> }  path="/albums" exact />
             </Routes>
         </Router>
    );

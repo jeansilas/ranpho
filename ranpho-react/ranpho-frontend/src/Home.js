@@ -1,6 +1,7 @@
-import Foto from "./components/album";
+import Foto from "./components/Foto";
 import Formulario from "./components/search-bar";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import "./Home.css";
 
@@ -62,7 +63,9 @@ function Home() {
             <img className="logo" src="/love.png" alt="logo"/>
             <p className="txt-impact">Pesquise, favorite e salve suas fotos favoritas em um  só album</p>
           </div>
-          <button className="btn-album">Meus Albuns</button>
+          <button className="btn-album">
+            <Link className="link-route" to="/albums">Meus Albums</Link>
+          </button>
       </div>
 
       <div className="Forms">
