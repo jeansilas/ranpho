@@ -21,7 +21,7 @@ export default function Foto(props) {
 
   return (
     <div className="contornoImagem">
-      <img className="img" alt="Doguinho" src={props.src}>
+      <img className="img-photo" alt="Doguinho" src={props.src}>
       </img>
     
       <form className="forms" onSubmit={saveImg}>

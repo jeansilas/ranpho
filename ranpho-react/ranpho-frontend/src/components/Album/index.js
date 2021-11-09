@@ -30,7 +30,7 @@ export default function Album(props) {
                 
           </div>          
           <div className="link">
-            <Link className="album-title" to="/">{props.src}</Link>
+            <Link className="album-title" to = {`/albums/${props.src}`}>{props.src}</Link>
           </div>
         </div>
       

@@ -1,0 +1,11 @@
+.Body-photos-albums {
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-albums {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
