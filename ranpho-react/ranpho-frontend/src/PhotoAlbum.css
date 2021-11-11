@@ -1,6 +1,7 @@
 .Body-photos-albums {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .photo-albums {
@@ -8,4 +9,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: white;
+    padding: 20px;
+    height: 100%;
 }

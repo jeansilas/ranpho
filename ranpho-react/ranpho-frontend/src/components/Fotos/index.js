@@ -8,8 +8,8 @@ import "./index.css";
 export default function FOTO_ALBUM(props) {
   
   return (
-    <div className="contornoImagem">
-      <img className="img" alt="Doguinho" src={props.src}/>
+    <div className="contornoImagem-fotos">
+      <img className="img-fotos" alt="Doguinho" src={props.src}/>
     </div>
   );
 };
