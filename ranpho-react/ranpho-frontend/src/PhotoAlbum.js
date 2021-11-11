@@ -12,7 +12,7 @@ export default function PhotoAlbum() {
     const loadData = () => {
         // Carrega informações de uma nota
         axios
-          .get(`http://localhost:8000/api/album/${params.album_title}/`)
+          .get(`https://stark-island-49610.herokuapp.com/api/album/${params.album_title}/`)
           .then((res) =>{
             let imagens = res.data;
             console.log(imagens)

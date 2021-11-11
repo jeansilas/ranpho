@@ -13,7 +13,7 @@ export default function Foto(props) {
 
   const saveImg = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:8000/api/pics/", {album:titleAlbum, content:props.src}).then(
+    axios.post("https://stark-island-49610.herokuapp.com/api/pics/", {album:titleAlbum, content:props.src}).then(
         (response) => {
           setTitleAlbum("");
         });
